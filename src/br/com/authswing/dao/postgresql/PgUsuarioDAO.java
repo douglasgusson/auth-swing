@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -139,7 +140,7 @@ public class PgUsuarioDAO implements UsuarioDAO {
     }
 
     @Override
-    public Usuario encontrar(Usuario usuario) {
+    public boolean logar(Usuario usuario) {
         
         Connection con = DAOFactory.getDefaultDAOFactory().getConnection();
         Usuario u = new Usuario();
@@ -164,7 +165,7 @@ public class PgUsuarioDAO implements UsuarioDAO {
 
             ResultSet rs = ps.executeQuery();
 
-            while (rs.next()) {
+            if (rs.next()) {
                 u.setId(rs.getLong(1));
                 u.setNomeUsuario(rs.getString(2));
                 u.setSenha(rs.getString(3));
@@ -174,16 +175,19 @@ public class PgUsuarioDAO implements UsuarioDAO {
                 u.setNovaSenha(rs.getBoolean(7));
                 u.setAtivo(rs.getBoolean(8));
                 u.setAdmin(rs.getBoolean(9));
+                u.setUltimoAcesso(LocalDateTime.now());
+                alterar(u);
+                return true;
             }
 
             con.close();
 
         } catch (SQLException ex) {
             Logger.getLogger(PgUsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            throw new DAOException("Falha ao encontar usuario em PgUsuarioDAO", ex);
+            throw new DAOException("Falha ao logar em PgUsuarioDAO", ex);
         }
 
-        return u;
+        return false;
     }
 
 }

@@ -255,13 +255,7 @@ public class FrmLogin extends javax.swing.JDialog {
 
     public boolean autenticar(Usuario usuario) {
         UsuarioDAO usuarioDAO = DAOFactory.getDefaultDAOFactory().getUsuarioDAO();
-        Usuario u = usuarioDAO.encontrar(usuario);
-        if (u != null) {
-            u.setUltimoAcesso(LocalDateTime.now());
-            usuarioDAO.alterar(u);
-            return true;
-        }
-        return false;
+        return (usuarioDAO.logar(usuario));
     }
 
     private void confirmarSaida() {
