@@ -237,10 +237,6 @@ public class FrmLogin extends javax.swing.JDialog {
 
     private void initialize() {
         this.setTitle("AuthSwing - Login");
-//        GUIUtils.considerarSetaComoTab(btEntrar);
-//        GUIUtils.considerarSetaComoTab(btSair);
-//        GUIUtils.considerarEnterComoTab(tfUsuario);
-//        GUIUtils.considerarEnterComoTab(tfSenha);
 
         this.lbStatus.setText("");
 
