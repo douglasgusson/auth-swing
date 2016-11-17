@@ -1,5 +1,5 @@
 ﻿CREATE TABLE usuario (
-  id            SERIAL      NOT NULL,
+  id_usuario    SERIAL      NOT NULL,
   nome_usuario  VARCHAR(60) NOT NULL,
   senha         CHAR(64)    NOT NULL,
   nome_completo VARCHAR(60) NOT NULL,
@@ -9,9 +9,9 @@
   ativo         BOOLEAN     NOT NULL,
   administrador BOOLEAN     NOT NULL,
   CONSTRAINT pk_usuario
-    PRIMARY KEY (id),
+    PRIMARY KEY (id_usuario),
   CONSTRAINT uniq_nome
     UNIQUE (nome_usuario)
 );
 
--- SELECT * FROM usuario;
+
