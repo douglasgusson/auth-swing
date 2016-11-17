@@ -19,7 +19,7 @@ public class Usuario {
     private Boolean admin;
 
     public Usuario(String nomeUsuario, String senha, String nomeCompleto,
-            String email, LocalDateTime ultimoAcesso, Boolean novaSenha, Boolean ativo) {
+            String email, LocalDateTime ultimoAcesso, Boolean novaSenha, Boolean ativo, Boolean admin) {
         this.nomeUsuario = nomeUsuario;
         this.senha = senha;
         this.nomeCompleto = nomeCompleto;
@@ -27,6 +27,7 @@ public class Usuario {
         this.ultimoAcesso = ultimoAcesso;
         this.novaSenha = novaSenha;
         this.ativo = ativo;
+        this.admin = admin;
     }
 
     public Usuario() {
