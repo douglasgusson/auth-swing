@@ -67,7 +67,7 @@ public class Main extends JWindow {
         JLabel lbTitulo = new JLabel("Auth Swing", JLabel.CENTER);
         lbTitulo.setFont(new Font("Sans-Serif", Font.BOLD, 14));
 
-        JLabel load = new JLabel("Carregando módulos do sistema", JLabel.CENTER);
+        JLabel load = new JLabel("Carregando módulos do sistema...", JLabel.CENTER);
         load.setFont(new Font("Sans-Serif", Font.BOLD, 10));
 
         content.add(lbTitulo, BorderLayout.NORTH);
