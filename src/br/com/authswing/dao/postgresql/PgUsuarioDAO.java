@@ -116,7 +116,7 @@ public class PgUsuarioDAO implements UsuarioDAO {
                     + "      nova_senha = ?,\n"
                     + "      ativo = ?,\n"
                     + "      administrador = ?\n"
-                    + "  WHERE id = ?;";
+                    + "  WHERE id_usuario = ?;";
 
             try (PreparedStatement ps = connection.prepareStatement(SQL)) {
 
