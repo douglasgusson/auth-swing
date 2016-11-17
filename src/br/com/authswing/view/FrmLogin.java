@@ -236,7 +236,7 @@ public class FrmLogin extends javax.swing.JDialog {
     }//GEN-LAST:event_jLabel4FocusGained
 
     private void initialize() {
-        this.setTitle("Ctrl Polimento - Login");
+        this.setTitle("AuthSwing - Login");
 //        GUIUtils.considerarSetaComoTab(btEntrar);
 //        GUIUtils.considerarSetaComoTab(btSair);
 //        GUIUtils.considerarEnterComoTab(tfUsuario);
@@ -261,7 +261,7 @@ public class FrmLogin extends javax.swing.JDialog {
     private void confirmarSaida() {
         int i = JOptionPane.showConfirmDialog(null,
                 "Deseja realmente sair deste sistema?\n",
-                "Ctrl Polimento - Confirmação de saída",
+                "AuthSwing - Confirmação de saída",
                 JOptionPane.YES_NO_OPTION);
         if (i == JOptionPane.NO_OPTION) {
             repaint();
