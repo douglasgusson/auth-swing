@@ -1,6 +1,5 @@
 package br.com.authswing.view;
 
-
 import br.com.authswing.dao.DAOFactory;
 import br.com.authswing.dao.model.UsuarioDAO;
 import br.com.authswing.domain.Usuario;
@@ -255,8 +254,14 @@ public class FrmLogin extends javax.swing.JDialog {
     }
 
     public boolean autenticar(Usuario usuario) {
-        UsuarioDAO usuarioDAO = DAOFactory.getDefaultDAOFactory().getUsuarioDAO();                            
-        return (usuarioDAO.encontrar(usuario) != null);
+        UsuarioDAO usuarioDAO = DAOFactory.getDefaultDAOFactory().getUsuarioDAO();
+        Usuario u = usuarioDAO.encontrar(usuario);
+        if (u != null) {
+            u.setUltimoAcesso(LocalDateTime.now());
+            usuarioDAO.alterar(u);
+            return true;
+        }
+        return false;
     }
 
     private void confirmarSaida() {
